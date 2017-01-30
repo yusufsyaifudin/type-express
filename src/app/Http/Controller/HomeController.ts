@@ -30,6 +30,4 @@ class HomeController {
 
 // Create the HomeController, and export its configured Express.Router
 const homeRoutes: HomeController = new HomeController();
-homeRoutes.init();
-
 export default homeRoutes.router;
