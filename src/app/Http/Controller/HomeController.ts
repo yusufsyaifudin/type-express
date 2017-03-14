@@ -1,4 +1,5 @@
 import {Router, Request, Response, NextFunction} from 'express';
+import {News} from './../../Models/News';
 
 class HomeController {
 
@@ -12,10 +13,13 @@ class HomeController {
     this.init();
   }
 
-  public getAll(req: Request, res: Response, next: NextFunction) {
+  public async getAll(req: Request, res: Response, next: NextFunction) {
+    let data = await (new News).query().whereIn('id', [1, 2])
+    // let data = await News.where<News>({id: 2}).fetch()
+
     res.json({
-      x: true
-    });
+      data: data
+    })    
   }
 
 
